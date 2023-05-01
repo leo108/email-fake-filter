@@ -1,0 +1,27 @@
+{
+  "cambridge.ga": {
+    "providers": [
+      "email-fake.com",
+      "emailfake.com",
+      "generator.email",
+      "mail-temp.com"
+    ],
+    "hosts": {
+      "cambridge.ga": {
+        "firstseen": 1676180000,
+        "lastseen": 1682390000
+      }
+    }
+  },
+  "byyondob.xyz": {
+    "providers": [
+      "email-fake.com"
+    ],
+    "hosts": {
+      "byyondob.xyz": {
+        "firstseen": 1682350000,
+        "lastseen": 1682350000
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+    "name": "leo108/email-fakefilter-workflow",
+    "type": "project",
+    "authors": [
+        {
+            "name": "leo108",
+            "email": "root@leo108.com"
+        }
+    ],
+    "require": {
+        "leo108/email-fakefilter-tools": "^1.0"
+    }
+}

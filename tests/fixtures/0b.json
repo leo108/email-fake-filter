@@ -1,0 +1,25 @@
+{
+  "randomail.io": {
+    "providers": [
+      "fakemail.io"
+    ],
+    "hosts": {
+      "randomail.io": {
+        "firstseen": 1645830000,
+        "lastseen": 1682900000
+      }
+    }
+  },
+  "dayrep.com": {
+    "providers": [
+      "fakemailgenerator.com",
+      "wegwerfemailadresse.com"
+    ],
+    "hosts": {
+      "dayrep.com": {
+        "firstseen": 1645870000,
+        "lastseen": 1682880000
+      }
+    }
+  }
+}

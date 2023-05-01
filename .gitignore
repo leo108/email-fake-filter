@@ -1,0 +1,6 @@
+.github/vendor
+.github/tmp
+.idea
+.phpunit.result.cache
+.phpunit.cache
+/vendor/

@@ -1,0 +1,48 @@
+name: Update Database
+
+run-name: Update Database
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 12 * * 0'
+
+jobs:
+  Download-And-Process-Data:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - run: mkdir -p .github/tmp
+
+      - name: Download data_version2 file
+        run: |
+          curl https://raw.githubusercontent.com/7c/fakefilter/main/json/data_version2.json > .github/tmp/data_version2.json
+
+      - name: Install dependencies
+        run: cd .github && composer install --prefer-dist --no-progress
+
+      - name: Process data
+        run: cd .github && php process.php
+
+      - name: Commit & Push changes
+        id: auto-commit-action
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          commit_message: Update database
+          file_pattern: 'data/*.json'
+
+      - name: Bump version and push tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          commit_sha: ${{ steps.auto-commit-action.outputs.commit_hash }}
+          fetch_all_tags: true
+          default_bump: minor
